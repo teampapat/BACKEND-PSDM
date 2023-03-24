@@ -22,7 +22,7 @@ class strukturOrganisasi_models {
         return $this->db->single();
     }
 
-    public function tambahDatatruktur($data)
+    public function tambahDataStruktur($data)
     {
         $query = "INSERT INTO struktur
                     VALUES
@@ -37,7 +37,7 @@ class strukturOrganisasi_models {
         return $this->db->rowCount();
     }
 
-    public function hapusDatatruktur($id)
+    public function hapusDataStruktur($id)
     {
         $query = "DELETE FROM struktur WHERE nama = :nama";
 
@@ -50,7 +50,7 @@ class strukturOrganisasi_models {
     }
 
 
-    public function ubahDatatruktur($data)
+    public function ubahDataStruktur($data)
     {
         $query = "UPDATE struktur SET
                     jabatan = :jabatan,
@@ -65,7 +65,7 @@ class strukturOrganisasi_models {
     }
 
 
-    public function cariDatatruktur()
+    public function cariDataStruktur()
     {
         $keyword = $_POST['keyword'];
         $query = "SELECT * FROM struktur WHERE nama LIKE :keyword";
