@@ -64,4 +64,3 @@
         $this->view('templates/footer');
     }
     }
-?>
