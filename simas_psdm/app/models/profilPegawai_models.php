@@ -1,7 +1,7 @@
 <?php 
 
 class profilPegawai_models {
-    private $table = 'master_pegawai';
+    private $table = 'masterpegawai';
     private $db;
 
     public function __construct()
