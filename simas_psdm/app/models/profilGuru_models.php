@@ -1,7 +1,7 @@
 <?php 
 
 class profilGuru_models {
-    private $table = 'master_guru';
+    private $table = 'masterguru';
     private $db;
 
     public function __construct()
