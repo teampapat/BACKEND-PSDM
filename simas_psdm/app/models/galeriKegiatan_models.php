@@ -17,8 +17,8 @@ class galeriKegiatan_models {
 
     public function getGaleriById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
-        $this->db->bind('id', $id);
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE kode_galeri=:kode_galeri');
+        $this->db->bind('kode_galeri', $id);
         return $this->db->single();
     }
 
@@ -26,7 +26,7 @@ class galeriKegiatan_models {
     {
         $query = "INSERT INTO galeri
                     VALUES
-                  (null, :id, :foto, :deskripsi)";
+                  (null, :kode_galeri, :foto, :deskripsi)";
 
         $this->db->query($query);
         $this->db->bind('foto', $data['foto']);
@@ -39,10 +39,10 @@ class galeriKegiatan_models {
 
     public function hapusDataGaleri($id)
     {
-        $query = "DELETE FROM galeri WHERE id = :id";
+        $query = "DELETE FROM galeri WHERE kode_galeri = :kode_galeri";
 
         $this->db->query($query);
-        $this->db->bind('id', $id);
+        $this->db->bind('kode_galeri', $id);
 
         $this->db->execute();
 
@@ -55,7 +55,7 @@ class galeriKegiatan_models {
         $query = "UPDATE galeri SET
                     foto = :foto,
                     deskripsi = :deskripsi,
-                  WHERE id = :id";
+                  WHERE kode_galeri = :kode_galeri";
 
         $this->db->query($query);
         $this->db->bind('foto', $data['foto']);
