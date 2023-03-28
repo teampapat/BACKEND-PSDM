@@ -1,5 +1,5 @@
 <?php
-    class Galeri_kegiatan extends Controller{
+    class galeriKegiatan extends Controller{
         public function index(){
             $data['judul'] = 'Galeri Kegiatan';
             $data['kegiatan'] = $this->model('galeriKegiatan_models')->getALLKegiatan();
