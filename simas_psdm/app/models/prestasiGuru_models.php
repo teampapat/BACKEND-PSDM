@@ -1,7 +1,7 @@
 <?php 
 
 class PrestasiGuru_models {
-    private $table = 'prestasi';
+    private $table = 'prestasi_guru';
     private $db;
 
     public function __construct()
