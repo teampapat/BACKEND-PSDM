@@ -12,7 +12,7 @@ class profilPegawai extends Controller{
         $data['judul'] = 'Detail Pegawai';
         $data['profil'] = $this->model('profilPegawai_models')->getProfilById($id);
         $this->view('templates/header', $data);
-        $this->view('profil/detail', $data);
+        $this->view('profilPegawai/detail', $data);
         $this->view('templates/footer');
     }
 
