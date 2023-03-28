@@ -17,8 +17,8 @@ class profilGuru_models {
 
     public function getProfilById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
-        $this->db->bind('id', $id);
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE kode_guru=:kode_guru');
+        $this->db->bind('kode_guru', $id);
         return $this->db->single();
     }
 
@@ -26,7 +26,7 @@ class profilGuru_models {
     {
         $query = "INSERT INTO master_guru
                     VALUES
-                  (null, :id, :nama_lengkap, :jenis_kelamin, :tempat_lahir, :tanggal_lahir, :alamat_lengkap, :pendidikan_terakhir, :jurusan_pendidikan_terakhir, :nomer_hp, :kategori, :mapel_yg_diampu, :kategori_mapel, :nip, :status_sertifikasi, :keahlian_ganda, :status_pernikahan, :link_foto)";
+                  (null, :kode_guru, :nama_lengkap, :jenis_kelamin, :tempat_lahir, :tanggal_lahir, :alamat_lengkap, :pendidikan_terakhir, :jurusan_pendidikan_terakhir, :nomer_hp, :kategori, :mapel_yg_diampu, :kategori_mapel, :nip, :status_sertifikasi, :keahlian_ganda, :status_pernikahan, :link_foto)";
 
         $this->db->query($query);
         $this->db->bind('nama_lengkap', $data['nama_lengkap']);
@@ -53,10 +53,10 @@ class profilGuru_models {
 
     public function hapusDataProfil($id)
     {
-        $query = "DELETE FROM master_guru WHERE id = :id";
+        $query = "DELETE FROM master_guru WHERE kode_guru = :kode_guru";
 
         $this->db->query($query);
-        $this->db->bind('id', $id);
+        $this->db->bind('kode_guru', $id);
 
         $this->db->execute();
 
@@ -83,7 +83,7 @@ class profilGuru_models {
                     keahlian_ganda = :keahlian_ganda,
                     status_pernikahan = :status_pernikahan,
                     link_foto = :link_foto
-                  WHERE id = :id";
+                  WHERE kode_guru = :kode_guru";
 
         $this->db->query($query);
         $this->db->bind('nama_lengkap', $data['nama_lengkap']);
