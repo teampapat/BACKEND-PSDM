@@ -1,7 +1,7 @@
 <?php 
 
 class strukturOrganisasi_models {
-    private $table = 'struktur_organisasi';
+    private $table = 'struktur';
     private $db;
 
     public function __construct()
@@ -24,7 +24,7 @@ class strukturOrganisasi_models {
 
     public function tambahDataStruktur($data)
     {
-        $query = "INSERT INTO struktur_organisasi
+        $query = "INSERT INTO struktur
                     VALUES
                   (null, :nama, :jabatan, :nip)";
 
@@ -39,7 +39,7 @@ class strukturOrganisasi_models {
 
     public function hapusDataStruktur($id)
     {
-        $query = "DELETE FROM struktur_organisasi WHERE nama = :nama";
+        $query = "DELETE FROM struktur WHERE nama = :nama";
 
         $this->db->query($query);
         $this->db->bind('nama', $id);
@@ -52,7 +52,7 @@ class strukturOrganisasi_models {
 
     public function ubahDataStruktur($data)
     {
-        $query = "UPDATE struktur_organisasi SET
+        $query = "UPDATE struktur SET
                     jabatan = :jabatan,
                     nip = :nip,
                   WHERE nama = :nama";
@@ -68,7 +68,7 @@ class strukturOrganisasi_models {
     public function cariDataStruktur()
     {
         $keyword = $_POST['keyword'];
-        $query = "SELECT * FROM struktur_organisasi WHERE nama LIKE :keyword";
+        $query = "SELECT * FROM struktur WHERE nama LIKE :keyword";
         $this->db->query($query);
         $this->db->bind('keyword', "%$keyword%");
         return $this->db->resultSet();
