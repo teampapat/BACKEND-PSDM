@@ -1,5 +1,5 @@
 <?php
-    class Profil_guru extends Controller{
+    class profilGuru extends Controller{
         public function index(){
             $data['judul'] = 'Profil Guru';
             $data['profil'] = $this->model('profilGuru_models')->getALLProfil();
