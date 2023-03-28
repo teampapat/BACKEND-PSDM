@@ -17,8 +17,8 @@ class profilPegawai_models {
 
     public function getProfilById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
-        $this->db->bind('id', $id);
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE kode_pegawai=:kode_pegawai');
+        $this->db->bind('kode_pegawai', $id);
         return $this->db->single();
     }
 
@@ -26,7 +26,7 @@ class profilPegawai_models {
     {
         $query = "INSERT INTO master_guru
                     VALUES
-                  (null, :id, :nama_lengkap, :jenis_kelamin, :tempat_lahir, :tanggal_lahir, :alamat_lengkap, :pendidikan_terakhir, :jurusan_pendidikan_terakhir, :nomer_hp, :kategori, :status_pernikahan, :link_foto)";
+                  (null, :kode_pegawai, :nama_lengkap, :jenis_kelamin, :tempat_lahir, :tanggal_lahir, :alamat_lengkap, :pendidikan_terakhir, :jurusan_pendidikan_terakhir, :nomer_hp, :kategori, :status_pernikahan, :link_foto)";
 
         $this->db->query($query);
         $this->db->bind('nama_lengkap', $data['nama_lengkap']);
@@ -48,10 +48,10 @@ class profilPegawai_models {
 
     public function hapusDataProfil($id)
     {
-        $query = "DELETE FROM master_pegawai WHERE id = :id";
+        $query = "DELETE FROM master_pegawai WHERE kode_pegawai = :kode_pegawai";
 
         $this->db->query($query);
-        $this->db->bind('id', $id);
+        $this->db->bind('kode_pegawai', $id);
 
         $this->db->execute();
 
@@ -73,7 +73,7 @@ class profilPegawai_models {
                     kategori = :kategori,
                     status_pernikahan = :status_pernikahan,
                     link_foto = :link_foto
-                  WHERE id = :id";
+                  WHERE kode_pegawai = :kode_pegawai";
 
         $this->db->query($query);
         $this->db->bind('nama_lengkap', $data['nama_lengkap']);
