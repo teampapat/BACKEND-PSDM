@@ -1,10 +1,10 @@
 <?php
-class Profil_pegawai extends Controller{
+class profilPegawai extends Controller{
     public function index(){
         $data['judul'] = 'Profil Pegawai';
         $data['profil'] = $this->model('profilPegawai_models')->getALLProfil();
         $this->view('templates/header', $data);
-        $this->view('profil/index', $data);
+        $this->view('profilPegawai/index', $data);
         $this->view('templates/footer');
     }
 
