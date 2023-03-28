@@ -1,5 +1,5 @@
 <?php
-    class Prestasi_guru extends Controller{
+    class prestasiGuru extends Controller{
         public function index(){
             $data['judul'] = 'Prestasi Guru';
             $data['prestasi'] = $this->model('prestasiGuru_models')->getAllPrestasi();
