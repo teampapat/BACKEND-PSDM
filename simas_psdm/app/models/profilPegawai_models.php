@@ -24,7 +24,7 @@ class profilPegawai_models {
 
     public function tambahDataProfil($data)
     {
-        $query = "INSERT INTO master_guru
+        $query = "INSERT INTO masterkaryawan
                     VALUES
                   (null, :kode_pegawai, :nama_lengkap, :jenis_kelamin, :tempat_lahir, :tanggal_lahir, :alamat_lengkap, :pendidikan_terakhir, :jurusan_pendidikan_terakhir, :nomer_hp, :kategori, :status_pernikahan, :link_foto)";
 
@@ -48,7 +48,7 @@ class profilPegawai_models {
 
     public function hapusDataProfil($id)
     {
-        $query = "DELETE FROM master_pegawai WHERE kode_pegawai = :kode_pegawai";
+        $query = "DELETE FROM masterkaryawan WHERE kode_pegawai = :kode_pegawai";
 
         $this->db->query($query);
         $this->db->bind('kode_pegawai', $id);
@@ -61,7 +61,7 @@ class profilPegawai_models {
 
     public function ubahDataProfil($data)
     {
-        $query = "UPDATE master_pegawai SET
+        $query = "UPDATE masterkaryawan SET
                     nama_lengkap = :nama_lengkap,
                     jenis_kelamin = :jenis_kelamin,
                     tempat_lahir = :tempat_lahir,
@@ -95,7 +95,7 @@ class profilPegawai_models {
     public function cariDataProfil()
     {
         $keyword = $_POST['keyword'];
-        $query = "SELECT * FROM master_guru WHERE nama_lengkap LIKE :keyword";
+        $query = "SELECT * FROM masterkaryawan WHERE nama_lengkap LIKE :keyword";
         $this->db->query($query);
         $this->db->bind('keyword', "%$keyword%");
         return $this->db->resultSet();
