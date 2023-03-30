@@ -24,7 +24,7 @@ class profilGuru_models {
 
     public function tambahDataProfil($data)
     {
-        $query = "INSERT INTO master_guru
+        $query = "INSERT INTO masterguru
                     VALUES
                   (null, :kode_guru, :nama_lengkap, :jenis_kelamin, :tempat_lahir, :tanggal_lahir, :alamat_lengkap, :pendidikan_terakhir, :jurusan_pendidikan_terakhir, :nomer_hp, :kategori, :mapel_yg_diampu, :kategori_mapel, :nip, :status_sertifikasi, :keahlian_ganda, :status_pernikahan, :link_foto)";
 
@@ -53,7 +53,7 @@ class profilGuru_models {
 
     public function hapusDataProfil($id)
     {
-        $query = "DELETE FROM master_guru WHERE kode_guru = :kode_guru";
+        $query = "DELETE FROM masterguru WHERE kode_guru = :kode_guru";
 
         $this->db->query($query);
         $this->db->bind('kode_guru', $id);
@@ -66,7 +66,7 @@ class profilGuru_models {
 
     public function ubahDataProfil($data)
     {
-        $query = "UPDATE master_guru SET
+        $query = "UPDATE masterguru SET
                     nama_lengkap = :nama_lengkap,
                     jenis_kelamin = :jenis_kelamin,
                     tempat_lahir = :tempat_lahir,
@@ -110,7 +110,7 @@ class profilGuru_models {
     public function cariDataProfil()
     {
         $keyword = $_POST['keyword'];
-        $query = "SELECT * FROM master_guru WHERE nama_lengkap LIKE :keyword";
+        $query = "SELECT * FROM masterguru WHERE nama_lengkap LIKE :keyword";
         $this->db->query($query);
         $this->db->bind('keyword', "%$keyword%");
         return $this->db->resultSet();
